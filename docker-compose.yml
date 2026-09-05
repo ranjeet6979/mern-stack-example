@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./mern/server
+    container_name: mern-server
+    ports:
+      - "5050:5050"
+    environment:
+      - ATLAS_URL=mongodb://admin:admin123@mongodb:27017/employees?authSource=admin
+    networks:
+      - mern-example-network
+    depends_on:
+      - mongodb
+  client:
+    build: ./mern/client
+    container_name: mern-client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+    networks:
+      - mern-example-network
+
+  mongodb:
+    ports:
+      - "27017:27017"
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin123
+    networks:
+      - mern-example-network
+    image: mongo:8
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+
+networks:
+  mern-example-network:
+    driver: bridge

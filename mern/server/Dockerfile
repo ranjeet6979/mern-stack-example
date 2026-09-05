@@ -10,5 +10,5 @@ COPY . .
 
 EXPOSE 5050
 
-#CMD ["npm","start"]
-CMD ["sh", "-c", "node seed.js && npm start"]
+CMD ["npm","start"]
+#CMD ["sh", "-c", "node seed.js && npm start"]
