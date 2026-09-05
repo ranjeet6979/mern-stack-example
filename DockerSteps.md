@@ -261,3 +261,51 @@ docker compose up -d
 
 <img width="1448" height="342" alt="image" src="https://github.com/user-attachments/assets/1c60781b-aea1-4aef-8cbc-07c0794c8082" />
 
+# Multi stage docker file
+
+old size
+
+<img width="953" height="34" alt="image" src="https://github.com/user-attachments/assets/93707b88-00f9-4f2f-948d-ab39ee9e6766" />
+
+new size
+
+<img width="951" height="49" alt="image" src="https://github.com/user-attachments/assets/0f88d898-5e86-4e2e-b8bb-8cff0652a832" />
+
+# Design document
+
+```text
+                         ┌───────────────────┐
+                         │      Browser      │
+                         │  localhost:5173   │
+                         └─────────┬─────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │      mern-client         │
+                    │  Container Port: 5173    │
+                    └────────────┬─────────────┘
+                                 │
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │      mern-server         │
+                    │                          │
+                    │  Container Port: 5050    │
+                    └────────────┬─────────────┘
+                                 │
+                                 │ MongoDB
+                                 ▼
+                    ┌──────────────────────────┐
+                    │         mongodb          │
+                    │        MongoDB 8         │
+                    │                          │
+                    │  Container Port: 27017   │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                         ┌───────────────┐
+                         │  mongo_data   │
+                         │ Docker Volume │
+                         └───────────────┘
+
+```text
