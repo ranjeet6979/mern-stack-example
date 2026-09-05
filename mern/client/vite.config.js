@@ -6,8 +6,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
+    host: '0.0.0.0',
     proxy: {
-      '/record': 'http://localhost:5050',
+      '/record': 'http://mern-server:5050',
     },
   },
 })
