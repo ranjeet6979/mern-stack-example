@@ -179,7 +179,7 @@ http://localhost:5173
 
 <img width="1446" height="360" alt="image" src="https://github.com/user-attachments/assets/3959ad61-5025-4945-8f6c-1908b22cc0e9" />
 
-## Step 9: Stop containers to verify volume persists data
+## Step 10: Stop containers to verify volume persists data
 
 ```bash
 docker stop mern-client mern-server mongodb
@@ -196,7 +196,7 @@ docker rm mern-client mern-server mongodb
 
 ---
 
-## Step 10: Repeat step 5 to 8 to verify data persist
+## Step 11: Repeat step 5 to 8 to verify data persist
 
 <img width="606" height="333" alt="image" src="https://github.com/user-attachments/assets/506f1086-02ef-4493-bb68-1ac421e4ea56" />
 
@@ -252,7 +252,7 @@ docker compose down
 ```
 <img width="553" height="89" alt="image" src="https://github.com/user-attachments/assets/e82816ce-cfdc-44ec-875f-13a38369542f" />
 
-## Step 2: Run docker compose up -d again and data should persist
+## Step 5: Run docker compose up -d again and data should persist
 
 
 ```bash
