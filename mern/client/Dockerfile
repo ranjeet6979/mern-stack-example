@@ -1,4 +1,4 @@
-FROM node:26
+FROM dhi.io/node:26-dev
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["npm","run","dev"]
+CMD ["npm", "run", "dev", "--", "--host"]

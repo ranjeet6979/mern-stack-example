@@ -1,4 +1,4 @@
-FROM node:26
+FROM dhi.io/node:26-dev
 
 WORKDIR /app
 
